@@ -1,3 +1,5 @@
-^myRexerc\.Rproj$
+^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^README\.Rmd$
+^old_refs$
