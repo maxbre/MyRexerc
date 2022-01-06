@@ -1,10 +1,10 @@
 Package: myRexerc
-Title: My R Programming exercises
-Version: 0.0.0.9000
+Title: My R programming exercises
+Version: 0.0.1
 Authors@R: 
     person("massimo", "bressan", , "massimo.bressan@arpa.veneto.it", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Some exercises on R programming.
+Description: Some interactive R programming exercises with 'learner'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
