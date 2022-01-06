@@ -52,6 +52,8 @@ question("Check all that you have NOT done:",
 
 Short instructions at the following [video](https://vimeo.com/203516510)
 
+This [cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf) gives you a quick reference to some base R features.
+
 ### Test your knowledge
 
 ```{r quiz2, echo=FALSE}
@@ -81,12 +83,15 @@ quiz(caption = "Quiz - Install R",
 ### How to install RStudio
 
 RStudio is an Integrated Development Environment for R. 
+The RStudio IDE is the most popular integrated development environment for R.
 
 What does that mean? Well, if you think of R as a language, which it is, you can think of RStudio as a program that helps you write and work in the language. 
 
 RStudio makes programming in R much easier and I strongly suggest that you use it!
 
-this [link](https://vimeo.com/203516968) explains how to install RStudio.
+This [link](https://vimeo.com/203516968) explains how to install RStudio.
+
+This [cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf) gives you a quick reference to main features.
 
 ### Test your knowledge
 
