@@ -4,4 +4,4 @@
 .httr-oauth
 .DS_Store
 .Rproj
-/inst/tutorials/first_attempt/*.html
+inst/tutorials/first_attempt/*.html
