@@ -10,8 +10,8 @@ A package with some R programming exercises compiled with ‘learner’.
 
 ## Installing the package
 
-You can install the development version of ‘myRexerc’ from my repo at
-[GitHub](https://github.com/maxbre/myRexerc/) with:
+You can install the development version of ‘myRexerc’ from the
+repository at [GitHub](https://github.com/maxbre/myRexerc/) with:
 
 ``` r
 if(!require("devtools")) install.packages("devtools")
