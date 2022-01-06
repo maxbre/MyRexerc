@@ -6,7 +6,7 @@ output:
     allow_skip: true
 runtime: shiny_prerendered
 description: >
-  Learn how to set up R and RStudio on your machine. We will also demonstrate how to install R packages from CRAN, and install the tidyverse package.
+  Learn how to set up R, RStudio and install R packages from CRAN
 ---
 
 ```{r setup, include=FALSE}
@@ -14,11 +14,11 @@ library(learnr)
 tutorial_options(exercise.timelimit = 60)
 ```
 
-## Welcome and grants
+## Welcoming and granting
 
-This is a demo tutorial quite entirely taken from [source code](https://github.com/rstudio/learnr/tree/main/inst/tutorials/ex-setup-r/ex-setup-r.Rmd) that made it. 
+This is a demo tutorial quite entirely taken from the [source code](https://github.com/rstudio/learnr/tree/main/inst/tutorials/ex-setup-r/ex-setup-r.Rmd) that made it. 
 
-I have just slightly modified the original content of the code to adapt it for my specific purposes (thanks again to Rstudio community for the great gift).
+I have just slightly modified its original content to adapt it for my specific purposes (thanks again to Rstudio community for this great 'free lunch').
 
 ### Outline
 
@@ -42,7 +42,7 @@ question("Check all that you have NOT done:",
   answer("installed the tidyverse R package", message = "* Install Packages"),
   answer("None of the above. I've done them all.", correct = TRUE, message = "You can skip this tutorial!"),
   type = "multiple",
-  incorrect = "This tutorial is here to help! To get set up read:"
+  incorrect = "This tutorial is here to help you in the R initial set up!"
 )
 ```
 
@@ -50,7 +50,7 @@ question("Check all that you have NOT done:",
 
 ### How to install R
 
-![](https://vimeo.com/203516510)
+Short instructions at the following [video](https://vimeo.com/203516510)
 
 ### Test your knowledge
 
@@ -58,7 +58,7 @@ question("Check all that you have NOT done:",
 quiz(caption = "Quiz - Install R",
   question("Is R free to download and use?",
     answer("Yes!", correct = TRUE, message = "R is free _and_ open source, which means that anyone can read, use, and copy the source code of the R language."),
-    answer("No.")
+    answer("No.", message = "R is free _and_ open source, which means that anyone can read, use, and copy the source code of the R language.")
   ),
   question("Where do you download R?",
     answer("www.rstudio.com/download"),
@@ -80,9 +80,13 @@ quiz(caption = "Quiz - Install R",
 
 ### How to install RStudio
 
-RStudio is an Integrated Development Environment for R. What does that mean? Well, if you think of R as a language, which it is, you can think of RStudio as a program that helps you write and work in the language. RStudio makes programming in R much easier and I suggest that you use it!
+RStudio is an Integrated Development Environment for R. 
 
-![](https://vimeo.com/203516968)
+What does that mean? Well, if you think of R as a language, which it is, you can think of RStudio as a program that helps you write and work in the language. 
+
+RStudio makes programming in R much easier and I strongly suggest that you use it!
+
+this [link](https://vimeo.com/203516968) explains how to install RStudio.
 
 ### Test your knowledge
 
@@ -117,7 +121,7 @@ quiz(caption = "Quiz - Install RStudio",
 
 ### How to install R packages
 
-![](https://vimeo.com/203516241)
+A short video [here](https://vimeo.com/203516241).
 
 ### Test your knowledge
 
