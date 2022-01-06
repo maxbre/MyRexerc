@@ -22,3 +22,11 @@ You can install the development version of myRexerc from
 # install.packages("devtools")
 devtools::install_github("maxbre/myRexerc")
 ```
+
+Users then need to install the package ‘learnr’ directly before running
+the exercises, for example:
+
+``` r
+install.packages("learnr")
+learnr::run_tutorial("first_attempt", package = "myRexerc")
+```
