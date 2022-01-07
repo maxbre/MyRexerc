@@ -36,7 +36,7 @@ Alternatively, a simple web search often yields the answer you're looking for.
 
 Anytime you have questions about a particular function, you can access R's built-in help files via the `?` command. For example, if you want more information on the c() function (we'll see next what is about), type ?c without the parentheses that normally follow the function name.
 
-## Is it R just a calculator? ...Noope!
+## Is R just a calculator? ...Noope!
 
 In its simplest form, R can be used as an interactive calculator.
 
@@ -50,7 +50,7 @@ Type 5 + 7 and then press button `Run Code`.
 5 + 7
 ```
 
-R simply prints the result of 12 by default.
+R prints the result of 12 by default.
 
 However, R is a programming language and often the reason we use a programming language as opposed to a calculator is to automate some process or avoid unnecessary repetition.
 
