@@ -14,13 +14,13 @@ library(learnr)
 tutorial_options(exercise.timelimit = 60)
 ```
 
-## Welcoming and granting
+## Welcome and grants
 
 Hello!
 
-This is a tutorial adapted from [source code]() that made it. 
+This is a tutorial adapted from [swirl source code](https://github.com/swirldev/swirl_courses) at GitHub. 
 
-I have just slightly modified its original content to adapt it for my specific purposes (thanks again to 'swirl' community for this great 'free lunch').
+I have just slightly modified its original content to adapt it for my specific purposes (thanks again to 'swirl' authors for such a great 'free lunch').
 
 ## Outline
 
@@ -34,27 +34,13 @@ If at any point you'd like more information on a particular topic related to R, 
 
 Alternatively, a simple web search often yields the answer you're looking for.
 
-Anytime you have questions about a particular function, you can access R's built-in help files via the `?` command. For example, if you want more information on the c() function (we'll see next what is about), type ?c without the parentheses that normally follow a function name.
+Anytime you have questions about a particular function, you can access R's built-in help files via the `?` command. For example, if you want more information on the c() function (we'll see next what is about), type ?c without the parentheses that normally follow the function name.
 
-Give it a try now.
-
-```{r help-c, exercise=TRUE}
-
-```
-
-```{r help-c-hint}
-?c
-```
-
-Type ?c and press Enter. This will bring up the help file for the c() function.
-
-
-
-## Is it just a calculator?
+## Is it R just a calculator? ...Noope!
 
 In its simplest form, R can be used as an interactive calculator.
 
-Type 5 + 7 and press Enter.
+Type 5 + 7 and then press button `Run Code`.
 
 ```{r sum, exercise=TRUE}
 
@@ -75,16 +61,19 @@ The way you assign a value to a variable in R is by using the assignment operato
 
 Think of the assignment operator as an arrow. You are assigning the value on the right side of the arrow to the variable name on the left side of the arrow.
 
+To assign the result of 5 + 7 to a new variable called x, you type `x <- 5 + 7`.
+This can be read as 'x gets 5 plus 7'. Give it a try now.
 
+It's important to include a single space on each side of the assignment operator, but do NOT put a space between the `<` and the `-` that form the arrow.
 
-<!-- - Class: cmd_question -->
-<!--   Output: To assign the result of 5 + 7 to a new variable called x, you type x <- -->
-<!--     5 + 7. This can be read as 'x gets 5 plus 7'. Give it a try now. -->
-<!--   CorrectAnswer: x <- 5 + 7 -->
-<!--   AnswerTests: any_of_exprs('x <- 5 + 7', 'x <- 7 + 5') -->
-<!--   Hint: Type x <- 5 + 7. It's important to include a single space on each side of -->
-<!--     the assignment operator, but do NOT put a space between the `<` and the `-` that -->
-<!--     form the arrow. -->
+```{r assign, exercise=TRUE}
+
+```
+
+```{r assign-hint}
+x <- 5 + 7
+```
+
 
 <!-- - Class: text -->
 <!--   Output: You'll notice that R did not print the result of 12 this time. When you -->

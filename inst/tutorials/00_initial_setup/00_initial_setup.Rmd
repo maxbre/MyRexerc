@@ -14,11 +14,11 @@ library(learnr)
 tutorial_options(exercise.timelimit = 60)
 ```
 
-## Welcoming and granting
+## Welcome and grants
 
 This is a demo tutorial quite entirely taken from the [source code](https://github.com/rstudio/learnr/tree/main/inst/tutorials/ex-setup-r/ex-setup-r.Rmd) that made it. 
 
-I have just slightly modified its original content to adapt it for my specific purposes (thanks again to Rstudio community for this great 'free lunch').
+I have just slightly modified its original content to adapt it for my specific purposes (thanks again to Rstudio community for such a great 'free lunch').
 
 ### Outline
 
