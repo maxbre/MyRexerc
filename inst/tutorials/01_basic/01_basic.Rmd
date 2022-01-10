@@ -11,6 +11,7 @@ description: >
 
 ```{r setup, include=FALSE}
 library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
 tutorial_options(exercise.timelimit = 60)
 ```
 
@@ -18,15 +19,15 @@ tutorial_options(exercise.timelimit = 60)
 
 Hello!
 
-This is a tutorial adapted from [swirl source code](https://github.com/swirldev/swirl_courses) at GitHub. 
+This is a tutorial adapted from the swirl source codeat [GitHub](https://github.com/swirldev/swirl_courses). 
 
 I have just slightly modified its original content to adapt it for my specific purposes (thanks again to 'swirl' authors for such a great 'free lunch').
 
 ## Outline
 
-We will explore some basic building blocks of the R programming language.
+We will next explore some basic building blocks of the R programming language.
 
-In its simplest form, R can be used as an interactive calculator.
+In its simplest form, R can be used as an interactive calculator but it's lik that, obviously!
 
 ## How to get help!
 
@@ -34,7 +35,18 @@ If at any point you'd like more information on a particular topic related to R, 
 
 Alternatively, a simple web search often yields the answer you're looking for.
 
-Anytime you have questions about a particular function, you can access R's built-in help files via the `?` command. For example, if you want more information on the c() function (we'll see next what is about), type ?c without the parentheses that normally follow the function name.
+Anytime you have questions about a particular function, you can access R's built-in help files via the `?` command. For example, if you want more information on the c() function (we'll see next what is about).
+
+Give it a try now, type ?c without the parentheses that normally follow the function name.
+
+
+```{r help, exercise=TRUE}
+
+```
+
+```{r help-hint}
+?c
+```
 
 ## Is R just a calculator? ...Noope!
 
@@ -52,7 +64,7 @@ Type 5 + 7 and then press button `Run Code`.
 
 R prints the result of 12 by default.
 
-However, R is a programming language and often the reason we use a programming language as opposed to a calculator is to automate some process or avoid unnecessary repetition.
+However, R is a programming language and often the reason we use it as opposed to a simple calculator is to automate some process or avoid unnecessary repetition.
 
 In this case, we may want to use our result from above in a second calculation. 
 Instead of retyping 5 + 7 every time we need it, we can just create a new variable that stores the result.
@@ -64,42 +76,45 @@ Think of the assignment operator as an arrow. You are assigning the value on the
 To assign the result of 5 + 7 to a new variable called x, you type `x <- 5 + 7`.
 This can be read as 'x gets 5 plus 7'. Give it a try now.
 
-It's important to include a single space on each side of the assignment operator, but do NOT put a space between the `<` and the `-` that form the arrow.
+It's important to include a single space on each side of the assignment operator, but do NOT put a space between the `<` and the `-` that form the arrow `<-`.
 
-```{r assign, exercise=TRUE}
+```{r assignx, exercise=TRUE}
 
 ```
 
-```{r assign-hint}
+```{r assignx-hint}
 x <- 5 + 7
 ```
+You have certainly noticed that nothing happened in the "outside" because R did not print the result of 12 this time. When you use the assignment operator, R assumes that you don't want to see the result immediately, but rather that you intend to use the result for something else later on. 
 
+To view the content of the variable `x`, just type `x` and then press button `Run Code`. Try it now.
 
-<!-- - Class: text -->
-<!--   Output: You'll notice that R did not print the result of 12 this time. When you -->
-<!--     use the assignment operator, R assumes that you don't want to see the result immediately, -->
-<!--     but rather that you intend to use the result for something else later on. -->
+```{r showx, exercise=TRUE, exercise.setup="assignx-hint"}
 
-<!-- - Class: cmd_question -->
-<!--   Output: To view the contents of the variable x, just type x and press Enter. Try -->
-<!--     it now. -->
-<!--   CorrectAnswer: x -->
-<!--   AnswerTests: omnitest(correctExpr='x') -->
-<!--   Hint: Type x and press Enter. This will automatically print the value of x. -->
+```
 
-<!-- - Class: cmd_question -->
-<!--   Output: Now, store the result of x - 3 in a new variable called y. -->
-<!--   CorrectAnswer: y <- x - 3 -->
-<!--   AnswerTests: omnitest(correctExpr='y <- x - 3') -->
-<!--   Hint: Type y <- x - 3 and press Enter. Whether you use x - 3 or x-3 is personal -->
-<!--     preference, but it's good habit to include a space on either side of the assignment -->
-<!--     operator. -->
+```{r showx-hint}
+x
+```
 
-<!-- - Class: cmd_question -->
-<!--   Output: What is the value of y? Type y to find out. -->
-<!--   CorrectAnswer: 'y' -->
-<!--   AnswerTests: omnitest(correctExpr='y') -->
-<!--   Hint: Type y and press Enter. -->
+Now, let's imagine to store the result of `x - 3` in a new variable called `y`. Whether you use `x - 3` or `x-3` is just matter of personal preferences: remember it's good habit to include a space on either side of the assignment operator.
+
+```{r assigny, echo=FALSE}
+question("How would you do that assignment to the new varaible y?",
+  answer("y <- x - 3", correct = TRUE),
+  answer("x <- y - 3"),
+  answer("y -3")
+)
+```
+
+```{r answery, echo=FALSE}
+question("What do you think is now the value of the new variable  y?",
+  answer("-3"),
+  answer("x"),
+  answer("9", correct = TRUE)
+)
+```
+
 
 <!-- - Class: text -->
 <!--   Output: Now, let's create a small collection of numbers called a vector. Any object -->
