@@ -35,13 +35,13 @@ learnr::run_tutorial("test_me", package = "myRexerc")
 ```
 
 then you’ll probably go ahead with the `00_initial_setup` for checking
-everything is fine with your system set.up:
+everything is fine with your system set-up:
 
 ``` r
 learnr::run_tutorial("00_initial_setup", package = "myRexerc")
 ```
 
-and finally start by going through first exercie by:
+and finally going through the first exercie by:
 
 ``` r
 learnr::run_tutorial("01_basic", package = "myRexerc")
