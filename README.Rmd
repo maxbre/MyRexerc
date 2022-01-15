@@ -20,6 +20,10 @@ knitr::opts_chunk$set(
 
 A package with some R programming exercises compiled with 'learner'.
 
+Beware: all the material must be considered experimental, in full development, not yet tested.
+
+Caveat emptor: use it at your own risk.
+
 ## Installing the package
 
 You can install the development version of 'myRexerc' from the repository at [GitHub](https://github.com/maxbre/myRexerc/) with:
