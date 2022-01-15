@@ -35,16 +35,16 @@ If at any point you'd like more information on a particular topic related to R, 
 
 Alternatively, a simple web search often yields the answer you're looking for.
 
-Anytime you have questions about a particular function, you can access R's built-in help files via the `?` command. For example, if you want more information on the c() function (we'll see next what is about).
+Anytime you have questions about a particular function, you can access R's built-in help files via the `?` command. For example, if you want more information on the `c()` function (we'll see next what is about).
 
-Give it a try now, type ?c without the parentheses that normally follow the function name.
+Give it a try now, type `?c` without the parentheses that normally follow the function name.
 
 
-```{r help, exercise=TRUE}
+```{r help_c, exercise=TRUE}
 
 ```
 
-```{r help-hint}
+```{r help_c-hint}
 ?c
 ```
 
@@ -52,7 +52,7 @@ Give it a try now, type ?c without the parentheses that normally follow the func
 
 In its simplest form, R can be used as an interactive calculator.
 
-Type 5 + 7 and then press button `Run Code`.
+Type `5 + 7` and then press button `Run Code`.
 
 ```{r sum, exercise=TRUE}
 
@@ -62,44 +62,44 @@ Type 5 + 7 and then press button `Run Code`.
 5 + 7
 ```
 
-R prints the result of 12 by default.
+R prints the result of `12` by default.
 
 However, R is a programming language and often the reason we use it as opposed to a simple calculator is to automate some process or avoid unnecessary repetition.
 
 In this case, we may want to use our result from above in a second calculation. 
-Instead of retyping 5 + 7 every time we need it, we can just create a new variable that stores the result.
+Instead of retyping `5 + 7` every time we need it, we can just create a new variable that stores the result.
 
-The way you assign a value to a variable in R is by using the assignment operator, which is just a 'less than' symbol followed by a 'minus' sign. It looks like this: <-
+The way you assign a value to a variable in R is by using the assignment operator, which is just a 'less than' symbol followed by a 'minus' sign. It looks like this: `<-`
 
 Think of the assignment operator as an arrow. You are assigning the value on the right side of the arrow to the variable name on the left side of the arrow.
 
-To assign the result of 5 + 7 to a new variable called x, you type `x <- 5 + 7`.
-This can be read as 'x gets 5 plus 7'. Give it a try now.
+To assign the result of `5 + 7` to a new variable called x, you type `x <- 5 + 7`.
+This can be read as "x gets 5 plus 7". Give it a try now.
 
 It's important to include a single space on each side of the assignment operator, but do NOT put a space between the `<` and the `-` that form the arrow `<-`.
 
-```{r assignx, exercise=TRUE}
+```{r assign_x, exercise=TRUE}
 
 ```
 
-```{r assignx-hint}
+```{r assign_x-hint}
 x <- 5 + 7
 ```
-You have certainly noticed that nothing happened in the "outside" because R did not print the result of 12 this time. When you use the assignment operator, R assumes that you don't want to see the result immediately, but rather that you intend to use the result for something else later on. 
+You have certainly noticed that nothing happened in the "outside" because R did not print the result of `12` this time. When you use the assignment operator, R assumes that you don't want to see the result immediately, but rather that you intend to use the result for something else later on. 
 
 To view the content of the variable `x`, just type `x` and then press button `Run Code`. Try it now.
 
-```{r showx, exercise=TRUE, exercise.setup="assignx-hint"}
+```{r show_x, exercise=TRUE, exercise.setup="assign_x-hint"}
 
 ```
 
-```{r showx-hint}
+```{r show_x-hint}
 x
 ```
 
 Now, let's imagine to store the result of `x - 3` in a new variable called `y`. Whether you use `x - 3` or `x-3` is just matter of personal preferences: remember it's good habit to include a space on either side of the assignment operator.
 
-```{r assigny, echo=FALSE}
+```{r q_assign_y, echo=FALSE}
 question("How would you do that assignment to the new varaible y?",
   answer("y <- x - 3", correct = TRUE),
   answer("x <- y - 3"),
@@ -107,7 +107,7 @@ question("How would you do that assignment to the new varaible y?",
 )
 ```
 
-```{r answery, echo=FALSE}
+```{r q_answer_y, echo=FALSE}
 question("What do you think is the value of the new variable  y?",
   answer("-3"),
   answer("x"),
@@ -117,33 +117,33 @@ question("What do you think is the value of the new variable  y?",
 
 Let's create a small collection of numbers called a vector. 
 Any object that contains data is called a data structure and numeric vectors are the simplest type of data structure in R. In fact, even a single number is considered a vector of length one.
-The easiest way to create a vector is with the c() function, which stands for 'concatenate' or 'combine'. To create a vector containing the numbers 1.1, 9, and 3.14, type `c(1.1, 9, 3.14)`.
-Try it now, store the result in a variable called z and then show it.
+The easiest way to create a vector is with the `c()` function, which stands for 'concatenate' or 'combine'. To create a vector containing the numbers `1.1`, `9`, and `3.14`, type `c(1.1, 9, 3.14)`.
+Try it now, store the result in a variable called `z` and then show it.
 
-```{r assignz, exercise=TRUE}
+```{r assign_z, exercise=TRUE}
 
 ```
 
-```{r assignz-hint}
+```{r assign_z-hint}
 z <- c(1.1, 9, 3.14)
 z
 ```
 
 You can combine vectors to make a new vector. 
-Now create a new vector that contains  z, 555, then z again in that order and assign it to a new varible called `zz`.
+Now create a new vector that contains  `z`, `555`, then `z` again in that order and assign it to a new varible called `zz`.
 
-```{r combinez, exercise=TRUE, exercise.setup="assignz-hint"}
+```{r combine_z, exercise=TRUE, exercise.setup="assign_z-hint"}
 
 ```
 
-```{r combinez-hint}
+```{r combine_z-hint}
 
 zz<-c(z, 555, z)
 
 ```
 
 
-```{r zz, echo=FALSE}
+```{r q_value__zz, echo=FALSE}
 question("What is the value of the new variable zz?",
   answer("555, 1.1, 9, 3.14"),
   answer("c(1.1, 9, 3.14), 555, c(1.1, 9, 3.14))"),
@@ -152,9 +152,10 @@ question("What is the value of the new variable zz?",
 ```
 
 Numeric vectors can be used in arithmetic expressions. 
-Assing `z * 2 + 100` to a new variable called `z_arthim`
 
-```{r zarithm, echo=FALSE}
+Let's imagine to assign `z * 2 + 100` to a new variable called `z_arthim`
+
+```{r q_z_arithm, echo=FALSE}
 
 question("What is the value of the new variable `z_artihm``?",
   answer("1.10, 9.00, 3.14"),
@@ -164,11 +165,17 @@ question("What is the value of the new variable `z_artihm``?",
 
 ```
 
-```{r check_zarithm, exercise=TRUE, exercise.setup="assignz-hint"}
+```{r reassign_z, include=FALSE}
+z <- c(1.1, 9, 3.14)
+z_arithm <- z * 2 + 100
 
 ```
 
-```{r check_zarithm-hint}
+```{r check_z_arithm, exercise=TRUE, exercise.setup="reassign_z"}
+
+```
+
+```{r check_z_arithm-hint}
 
 z_arithm <- z * 2 + 100
 
@@ -176,27 +183,28 @@ z_arithm
 
 ```
 
-What happens is the following: first, R multiplied each of the three elements in z by 2, then it added 100 to each element to get the result you see above. This is a nice feature of R called 'element-wise operation` which can be used in many circumstances.
+What happens is the following: first, R multiplied each of the three elements in `z` by `2`, then it added `100` to each element to get the result you see above. This is a nice feature of R called "element-wise operation" which can be used in many circumstances.
 
-Other common arithmetic operators are `+`, `-`, `/`, and `^` (where x^2 means 'x squared'). To take the square root, use the `sqrt()` function and to take the absolute value, use the `abs()` function.
+Other common arithmetic operators are `+`, `-`, `/`, and `^` (where `x^2` means 'x squared'). To take the square root, use the `sqrt()` function and to take the absolute value, use the `abs()` function.
 
-Now for example, take the square root of z - 1 and assign it to a new variable called `my_sqrt`. 
+Now for example, take the square root of `z - 1` and assign it to a new variable called `my_sqrt`. 
 
 
-```{r sqrtz, exercise=TRUE, exercise.setup="assignz-hint"}
+```{r sqrt_z, exercise=TRUE, exercise.setup="reassign_z"}
 
 ```
 
-```{r sqrtz-hint}
+```{r sqrt_z-hint}
 
-my_sqrt <- sqrt(z)
+my_sqrt <- sqrt(z - 1)
 
+my_sqrt
 ```
 
 Before viewing the contents of the my_sqrt variable, answer to the following question.
-Hint: think about how R handled the other 'vectorized' operations: i.e. element-by-element, it leaves you with a vector of the same length as the original vector.
+Hint: think about how R handled the other "vectorized" operations: i.e. element-by-element, it leaves you with a vector of the same length as the original vector.
 
-```{r my_sqrt, echo=FALSE}
+```{r q_my_sqrt, echo=FALSE}
 
 question("what do you think it contains the variable `my_sqrt`?",
   answer("a vector of length 3", correct = TRUE),
@@ -206,32 +214,33 @@ question("what do you think it contains the variable `my_sqrt`?",
 
 ```
 
+
+```{r my_sqrt, include=FALSE}
+z <- c(1.1, 9, 3.14)
+my_sqrt <- sqrt(z - 1)
+
+```
+
 To double check your answer, simply print the contents of the variable `my_sqrt`
 
-```{r print_my_sqrt, exercise=TRUE}
+```{r print_my_sqrt, exercise=TRUE, exercise.setup="my_sqrt"}
 
 ```
 
-```{r print_my_sqrt-hint, exercise.setup="sqrtz-hint"}
+Now Carefully examine the following code snippet:
 
-my_sqrt
-
-```
-
-#Carefully examine the following code snippet:
-
-```{r my_div, include=FALSE}
+```{r my_div, exercise=TRUE}
 
 z <- c(1.1, 9, 3.14)
 
-my_sqrt <- sqrt(z)
+my_sqrt <- sqrt(z-1)
 
 my_div <- z / my_sqrt 
 
 
 ```
 
-Think about how R handled the other 'vectorized' operations like `+` and `*`. 
+Think about how R handled the other 'vectorized' operations like `+` and `*` and answer the following question.
 
 ```{r which_my_div, echo=FALSE}
 
@@ -243,11 +252,24 @@ question("Which of the following statements do you think is true?",
 
 ```
 
-Now, go ahead and print the contents of  `my_div` to double check your answer.
+Now, go ahead and print the contents of `my_div` to double check your answer.
 
-```{r print_my_div, exercise=TRUE, exercise.setup="my_div"}
+```{r my_div_assign, include=FALSE}
+
+z <- c(1.1, 9, 3.14)
+
+my_sqrt <- sqrt(z)
+
+my_div <- z / my_sqrt 
+
 
 ```
+
+```{r print_my_div, exercise=TRUE, exercise.setup="my_div_assign"}
+
+```
+
+Type `my_div` and press and then press button `Run Code` to see its contents. 
 
 ```{r print_my_div-hint}
 
@@ -255,69 +277,41 @@ my_div
 
 ```
 
+When given two vectors of the same length, R simply performs the specified arithmetic operation (`+`, `-`, `*`, etc.) element-by-element. If the vectors are of different lengths, R 'recycles' the shorter vector until it is the same length as the longer vector.
 
+When we did `z * 2 + 100` in our earlier example, `z` was a vector of length 3, but technically 2 and 100 are each vectors of length 1. Behind the scenes, R is "recycling" the 2 to make a vector of 2s and  the 100 to make a vector of 100s. In other words, when you ask R to compute `z * 2 + 100`, what it really computes is this: `z * c(2, 2, 2) + c(100, 100, 100)`.
 
-<!--     #################################################################   -->
+To see another example of how this vector 'recycling' works, try adding `c(1, 2, 3, 4)` and `c(0, 10)`. Don't worry about saving the result in a new variable.
+Enter `c(1, 2, 3, 4) + c(0, 10)` to see how R adds two vectors of different length. Don't assign the result to a variable.
 
-<!--   CorrectAnswer: my_div -->
-<!--   AnswerTests: omnitest(correctExpr='my_div') -->
-<!--   Hint: Type my_div and press Enter to see its contents. -->
+```{r recycle, warning=TRUE, exercise=TRUE}
 
-<!-- - Class: text -->
-<!--   Output: When given two vectors of the same length, R simply performs the specified -->
-<!--     arithmetic operation (`+`, `-`, `*`, etc.) element-by-element. If the vectors -->
-<!--     are of different lengths, R 'recycles' the shorter vector until it is the same -->
-<!--     length as the longer vector. -->
+```
 
-<!-- - Class: text -->
-<!--   Output: When we did z * 2 + 100 in our earlier example, z was a vector of length -->
-<!--     3, but technically 2 and 100 are each vectors of length 1. -->
+```{r recycle-hint}
 
-<!-- - Class: text -->
-<!--   Output: 'Behind the scenes, R is ''recycling'' the 2 to make a vector of 2s and -->
-<!--     the 100 to make a vector of 100s. In other words, when you ask R to compute z -->
-<!--     * 2 + 100, what it really computes is this: z * c(2, 2, 2) + c(100, 100, 100).' -->
+c(1, 2, 3, 4) + c(0, 10)
 
-<!-- - Class: cmd_question -->
-<!--   Output: To see another example of how this vector 'recycling' works, try adding -->
-<!--     c(1, 2, 3, 4) and c(0, 10). Don't worry about saving the result in a new variable. -->
-<!--   CorrectAnswer: c(1, 2, 3, 4) + c(0, 10) -->
-<!--   AnswerTests: omnitest(correctExpr='c(1, 2, 3, 4) + c(0, 10)') -->
-<!--   Hint: Enter c(1, 2, 3, 4) + c(0, 10) in the console to see how R adds two vectors -->
-<!--     of different length. Don't assign the result to a variable. -->
+```
 
-<!-- - Class: text -->
-<!--   Output: If the length of the shorter vector does not divide evenly into the length -->
-<!--     of the longer vector, R will still apply the 'recycling' method, but will throw -->
-<!--     a warning to let you know something fishy might be going on. -->
+If the length of the shorter vector does not divide evenly into the length of the longer vector, R will still apply the 'recycling' method, but will throw a warning to let you know something fishy might be going on (you won't see that in this exercise enviroment, but keep that in mind). 
 
-<!-- - Class: cmd_question -->
-<!--   Output: Try c(1, 2, 3, 4) + c(0, 10, 100) for an example. -->
-<!--   CorrectAnswer: c(1, 2, 3, 4) + c(0, 10, 100) -->
-<!--   AnswerTests: omnitest(correctExpr='c(1, 2, 3, 4) + c(0, 10, 100)') -->
-<!--   Hint: Type c(1, 2, 3, 4) + c(0, 10, 100) to see how R handles adding two vectors, -->
-<!--     when the shorter vector's length does not divide evenly into the longer vector's -->
-<!--     length. Don't worry about assigning the result to a variable. -->
+Again on the 'recycling' rule let's see how R handles adding two vectors,  when the shorter vector's length does not divide evenly into the the longer vector's length.
 
-<!-- - Class: text -->
-<!--   Output: Before concluding this lesson, I'd like to show you a couple of time-saving tricks. -->
+```{r q_recycle, echo=FALSE}
 
-<!-- - Class: text -->
-<!--   Output: Earlier in the lesson, you computed z * 2 + 100. Let's pretend that you made a mistake and that you meant to add 1000 instead of 100. You could either re-type the expression, or... -->
+question("What is the result of `c(1, 2, 3, 4) + c(0, 10, 100)`?",
+  answer("a vector of length 4, namely `1 12 103  4`", correct = TRUE),
+  answer("a vector of length 3, namely `2 13 104`"),
+  answer("a vector of length 3, namely `1 12 103`")
+)
 
-<!-- - Class: cmd_question -->
-<!--   Output: In many programming environments, the up arrow will cycle through previous commands. Try hitting the up arrow on your keyboard until you get to this command (z * 2 + 100), then change 100 to 1000 and hit Enter. If the up arrow doesn't work for you, just type the corrected command. -->
-<!--   CorrectAnswer: z * 2 + 1000 -->
-<!--   AnswerTests: omnitest(correctExpr='z * 2 + 1000') -->
-<!--   Hint: If your environment does not support the up arrow feature, then just type the corrected command to move on. -->
+```
 
-<!-- - Class: text -->
-<!--   Output: Finally, let's pretend you'd like to view the contents of a variable that you created earlier, but you can't seem to remember if you named it my_div or myDiv. You could try both and see what works, or... -->
+Before concluding this exercise, let's keep in mind a couple of time-saving tricks (you probably already well know that but it's just for the sake of completeness).
 
-<!-- - Class: cmd_question -->
-<!--   Output: You can type the first two letters of the variable name, then hit the Tab key (possibly more than once). Most programming environments will provide a list of variables that you've created that begin with 'my'. This is called auto-completion and can be quite handy when you have many variables in your workspace. Give it a try. (If auto-completion doesn't work for you, just type my_div and press Enter.) -->
-<!--   CorrectAnswer: my_div -->
-<!--   AnswerTests: omnitest(correctExpr='my_div') -->
-<!--   Hint: If your programming environment doesn't support auto-completion, just type my_div and hit Enter to move on. -->
+You probably recall that earlier in the lesson, you computed `z * 2 + 100`.
+Let's pretend to be on the R console and that you made a mistake and that you meant to add 1000 instead of 100. You could either re-type the expression, or as in many other programming environments, the up arrow will cycle through previous commands. The solution is to hit the up arrow on the keyboard until you get to this command `z * 2 + 100`, then change 100 to 1000 and finally hit Enter. 
 
+Finally, let's pretend you'd like to view the contents of a variable that you created earlier, but you can't seem to remember if you named it `my_div` or `myDiv`. You could try both and see what works, or simply you can type the first two letters of the variable name, then hit the Tab key (possibly more than once). Most programming environments will provide a list of variables that you've created that begin with `my`. This is called auto-completion and can be quite handy when you have many variables in your workspace. 
 
