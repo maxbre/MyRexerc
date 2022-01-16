@@ -103,7 +103,9 @@ Now, let's imagine to store the result of `x - 3` in a new variable called `y`. 
 question("How would you do that assignment to the new varaible y?",
   answer("y <- x - 3", correct = TRUE),
   answer("x <- y - 3"),
-  answer("y -3")
+  answer("y -3"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
 )
 ```
 
@@ -111,7 +113,9 @@ question("How would you do that assignment to the new varaible y?",
 question("What do you think is the value of the new variable  y?",
   answer("-3"),
   answer("x"),
-  answer("9", correct = TRUE)
+  answer("9", correct = TRUE),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
 )
 ```
 
@@ -147,7 +151,9 @@ zz<-c(z, 555, z)
 question("What is the value of the new variable zz?",
   answer("555, 1.1, 9, 3.14"),
   answer("c(1.1, 9, 3.14), 555, c(1.1, 9, 3.14))"),
-  answer("1.10, 9.00, 3.14, 555.00, 1.10, 9.00, 3.14", correct = TRUE)
+  answer("1.10, 9.00, 3.14, 555.00, 1.10, 9.00, 3.14", correct = TRUE),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
 )
 ```
 
@@ -160,7 +166,9 @@ Let's imagine to assign `z * 2 + 100` to a new variable called `z_arthim`
 question("What is the value of the new variable `z_artihm``?",
   answer("1.10, 9.00, 3.14"),
   answer("2.20, 18.00, 6.28"),
-  answer("102.20, 118.00, 106.28", correct = TRUE)
+  answer("102.20, 118.00, 106.28", correct = TRUE),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
 )
 
 ```
@@ -209,7 +217,9 @@ Hint: think about how R handled the other "vectorized" operations: i.e. element-
 question("what do you think it contains the variable `my_sqrt`?",
   answer("a vector of length 3", correct = TRUE),
   answer("a single number (i.e a vector of length 1)"),
-  answer("a vector of length 0 (i.e. an empty vector)")
+  answer("a vector of length 0 (i.e. an empty vector)"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
 )
 
 ```
@@ -247,7 +257,9 @@ Think about how R handled the other 'vectorized' operations like `+` and `*` and
 question("Which of the following statements do you think is true?",
   answer("the first element of my_div is equal to the first element of z divided by the first element of my_sqrt, and so on...", correct = TRUE),
   answer("my_div is a single number (i.e a vector of length 1)"),
-  answer("my_div is undefined")
+  answer("my_div is undefined"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
 )
 
 ```
@@ -303,7 +315,9 @@ Again on the 'recycling' rule let's see how R handles adding two vectors,  when 
 question("What is the result of `c(1, 2, 3, 4) + c(0, 10, 100)`?",
   answer("a vector of length 4, namely `1 12 103  4`", correct = TRUE),
   answer("a vector of length 3, namely `2 13 104`"),
-  answer("a vector of length 3, namely `1 12 103`")
+  answer("a vector of length 3, namely `1 12 103`"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
 )
 
 ```
@@ -314,4 +328,3 @@ You probably recall that earlier in the lesson, you computed `z * 2 + 100`.
 Let's pretend to be on the R console and that you made a mistake and that you meant to add 1000 instead of 100. You could either re-type the expression, or as in many other programming environments, the up arrow will cycle through previous commands. The solution is to hit the up arrow on the keyboard until you get to this command `z * 2 + 100`, then change 100 to 1000 and finally hit Enter. 
 
 Finally, let's pretend you'd like to view the contents of a variable that you created earlier, but you can't seem to remember if you named it `my_div` or `myDiv`. You could try both and see what works, or simply you can type the first two letters of the variable name, then hit the Tab key (possibly more than once). Most programming environments will provide a list of variables that you've created that begin with `my`. This is called auto-completion and can be quite handy when you have many variables in your workspace. 
-
