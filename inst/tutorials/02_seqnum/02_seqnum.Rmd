@@ -19,6 +19,10 @@ tutorial_options(exercise.timelimit = 60)
 
 In this exercise, you'll learn how to create sequences of numbers in R.
 
+This is a tutorial adapted from the swirl source code at [GitHub](https://github.com/swirldev/swirl_courses). 
+
+I have just slightly modified its original content to adapt it for my specific purposes (thanks again to 'swirl' authors for such a great 'free lunch').
+
 # The colon operator `:`
 The simplest way to create a sequence of numbers in R is by using the `:` operator. 
 

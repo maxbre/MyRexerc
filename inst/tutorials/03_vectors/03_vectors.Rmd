@@ -1,0 +1,256 @@
+---
+title: "Vectors"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: >
+  vectors
+
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+tutorial_options(exercise.timelimit = 60)
+```
+
+# Introduction
+
+In this exercise, you'll learn how to deal with the simplest and most common data structure in R: the vector.
+
+This is a tutorial adapted from the swirl source code at [GitHub](https://github.com/swirldev/swirl_courses). 
+
+I have just slightly modified its original content to adapt it for my specific purposes (thanks again to 'swirl' authors for such a great 'free lunch').
+
+# Atomic vectors are of different flavours
+
+Vectors come in two different flavors: atomic vectors and lists. An atomic vector contains exactly one data type, whereas a list may contain multiple data types. We'll explore atomic vectors further before we get to lists.
+
+In previous exercises, we dealt entirely with numeric vectors, which are one type of atomic vector. Other types of atomic vectors include logical, character, integer, and complex.
+
+In this esercise, we'll take a closer look at logical and character vectors.
+
+# Logical vectors
+
+Logical vectors can contain the values `TRUE`, `FALSE`, and `NA` (for 'not available'). These values are generated as the result of logical 'conditions'.
+
+Let's experiment with some simple conditions.
+
+First, create a numeric vector num_vect that contains the values `0.5`, `55`, `-10`, and `6`.
+Recall that the `c()` function is used for creating a vector. If you forget how to use it, use ?c to access the help file. Don't forget to assign the result to a new variable called `num_vect`.
+Then, create a variable called tf that gets the result of `num_vect < 1`, which is read as 'num_vect is less than 1'.
+
+```{r vect, exercise=TRUE}
+
+```
+
+```{r vect-hint}
+num_vect <- c(0.5, 55, -10, 6)
+tf <- num_vect < 1
+```
+
+Before checking what is going on here, let's answer to the following question.
+
+```{r q_vect}
+question("What do you think the variable tf will look like?",
+    answer("a single logical value", message="Ummhh, close somehow, but it's a vector of length...?"),
+    answer("a vector of 1 logical values", message="Are you sure about that?"),
+    answer("a vector of 4 logical values", correct = TRUE),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+)
+```
+
+Do you remember our ecercise on vector arithmetic? The main topic was that R performs many operations on an element-by-element basis. We called these feature 'vectorized' operations.
+
+```{r q_vect_val}
+question("Can you predict the content of the variable tf?",
+    answer("TRUE", message="How can it be considering tf it's a vector of length 4?"),
+    answer("FALSE TRUE FALSE TRUE", message="Are you sure about that?"),
+    answer("TRUE FALSE  TRUE FALSE", correct = TRUE),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+)
+```
+
+The statement `num_vect < 1` is a condition and `tf` tells us whether each corresponding element of our numeric vector `num_vect` satisfies this condition (by using the "element-wise" feature).
+
+The first element of num_vect is `0.5`, which is less than `1` and therefore the statement `0.5 < 1` is `TRUE.` The second element of `num_vect` is `55`, which is greater than `1`, so the statement `55 < 1` is `FALSE`. The same logic applies for the third and fourth elements.
+
+Print the contents of tf to verify and double check your answers.
+
+```{r print_vect, exercise=TRUE, exercise.setup="vect-hint"}
+tf
+```
+
+Let's try another by imagining to type `num_vect >= 6` without assigning the result to a new variable.
+
+
+```{r q_vect_val2}
+question("Can you predict the content of that command?",
+    answer("TRUE", message="How can it be considering tf it's a vector of length 4?"),
+    answer("FALSE TRUE FALSE TRUE", correct = TRUE),
+    answer("TRUE FALSE  TRUE FALSE", message="Are you sure about that?"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+)
+```
+
+On real life jsut make sure there is no space between the `>` and `=` symbols. Think of them as one symbol representing 'greater than or equal to'.
+
+This time, we are asking whether each individual element of num_vect is greater than `OR` equal to `6`. Since only `55` and `6` are greater than or equal to `6`, the second and fourth elements of the result are `TRUE` and the first and third elements are `FALSE`.
+
+The `<` and `>=` symbols in these examples are called 'logical operators'.
+Other logical operators include `>`, `<=`, `==` for exact equality, and `!=` for inequality.
+
+If we have two logical expressions, `A` and `B`, we can ask whether at least one is TRUE with `A | B` (logical 'or' a.k.a. 'union') or whether they are both `TRUE` with `A & B` (logical 'and' a.k.a. 'intersection'). Lastly, `!A` is the negation of `A` and is `TRUE` when `A` is `FALSE` and vice versa.
+
+It's a good idea to spend some time playing around with various combinations of these logical operators until you get comfortable with their use. We'll do a few examples here to get you started.
+
+Try your best to predict the result of each of the following statements.
+You can use pencil and paper to work them out if it's helpful. If you get stuck, just guess and you've got a 50% chance of getting the right answer!
+
+
+```{r q_TF1}
+question("(3 > 5) & (4 == 4), returns...",
+    answer("FALSE", correct = TRUE),
+    answer("TRUE", message="& means intersection, both conditons must be TRUE to get TRUE?"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+)
+```
+
+```{r q_TF1-hint}
+# Break this problem down into 2 pieces. 
+# The `&` in the middle states that BOTH pieces are TRUE. 
+# Your job is to figure out if that is an accurate statement.
+# If so, the entire condition is TRUE. If not, it's FALSE.
+```
+
+```{r q_TF2}
+question("(TRUE == TRUE) | (TRUE == FALSE), returns...",
+    answer("TRUE", correct = TRUE),
+    answer("FALSE", message="| means union, just one conditons must be TRUE to get TRUE?"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+)
+```
+
+```{r q_TF2-hint}
+#Break this problem down into 2 pieces. The `|` in the middle states that AT LEAST ONE of the pieces is TRUE. Your job is to figure out if that is an accurate statement. If so, the entire condition is TRUE. If not, it's FALSE.
+```
+
+```{r q_TF3}
+question("(111 >= 111) | !(TRUE)) & ((4 + 1) == 5), returns...",
+    answer("TRUE", correct = TRUE),
+    answer("FALSE", message="This is a tricky one, check the hint for more details"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+)
+```
+
+```{r q_TF3-hint}
+# Remember that the `!` symbol negates whatever comes after it. There is also an 'order of operations' going on here. Conditions that  are enclosed within parentheses should be evaluated first. Then, work your way outwards.
+```
+
+Don't worry if you found these to be tricky. They're supposed to be. Working with logical statements in R takes practice, but your efforts will be rewarded in future exercises (e.g. subsetting and control structures).
+
+# Character vectors
+
+Character vectors are also very common in R. Double quotes are used to distinguish character objects, as in the following example.
+
+Create a character vector that contains the following words: "My", "name", "is". Remember to enclose each word in its own set of double quotes, so that R knows they are character strings. Store the vector in a variable called my_char. Make sure that the commas separating the words are OUTSIDE of the double quotes, or else R thinks the commas are part of the words.
+
+```{r my_char, exercise=TRUE}
+
+```
+
+```{r my_char-hint}
+my_char <- c("My", "name", "is")
+
+```
+
+Print the contents of `my_char` to see what it looks like. Type `my_char` to view its contents.
+
+```{r print_my_char, exercise=TRUE, exercise.setup="my_char-hint"}
+my_char
+```
+
+Right now, `my_char` is a character vector of length `3`. Let's say we want to join the elements of `my_char` together into one continuous character string (i.e. a character vector of length 1). We can do this using the `paste()` function. Use the argument `collapse = " "` to collapse the words in the vector so they almost form a sentence. There should be a single space between the double quotes in the `collapse` argument so that there are single spaces separating the words.
+
+```{r print_my_char_collapse, exercise=TRUE, exercise.setup="my_char-hint"}
+paste(my_char, collapse = " ")
+```
+
+```{r print_my_char_collapse-hint}
+# Make sure there is a space between the double quotes in the `collapse` argument. 
+```
+
+The `collapse` argument to the paste() function tells R that when we join together the elements of the my_char character vector, we'd like to separate them with single spaces.
+
+But, hold on! It seems that we're missing something.... Ah, yes! Your name!
+
+To add (or concatenate) your name to the end of my_char, use the `c()` function.
+Tack your name on to the end of the my_char vector using the `c()` function. Be sure to assign the result to a new variable called `my_name` and then print its content.
+
+```{r my_name, exercise=TRUE, exercise.setup="my_char-hint"}
+
+```
+
+```{r my_name-hint}
+my_name <- c(my_char, "your name here!")
+my_name
+```
+
+## review from here assignment of variables not working
+Now, use the `paste()` function once more to join the words in my_name together into a single character string. As you did in beforehand, don't forget to say `collapse = " "` to join all four words together, separated by single spaces.
+
+```{r print_my_name, exercise=TRUE, exercise.setup="my_name-hint"}
+
+```
+
+```{r print_my_name-hint}
+paste(my_name, collapse = " ")
+```    
+
+In this example, we used the `paste()` function to collapse the elements of a single character vector. `paste()` can also be used to join the elements of multiple character vectors. In the simplest case, we can join two character vectors that are each of length 1 (i.e. join two words). Try `paste("Hello", "world!", sep = " ")`, where the `sep` argument tells R that we want to separate the joined elements with a single space. There should be a single space between the double quotes in the `sep` argument to the paste() function.
+
+```{r print_hello_world, exercise=TRUE}
+
+```
+
+```{r print_hello_world-hint}
+paste("Hello", "world!", sep = " ")
+```
+
+For a slightly more complicated example, we can join two vectors, each of length `3`. 
+Use `paste()` to join the integer vector `1:3` with the character vector `c("X", "Y", "Z")`. 
+This time, use `sep = ""` to leave no space between the joined elements.
+
+Can you predict the output of the command `paste(1:3, c("X", "Y", "Z"), sep = "")`?
+```{r q_paste1}
+question("the putput is the vector:",
+    answer("1X 2Y 3Z", correct = TRUE),
+    answer("123XYZ", message="uhhmm...., are you sure about that?"),
+    answer("123 XYZ", message="uhhmm...., are you sure about that?"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+)
+```
+
+Notice that in the above question the pasted vectors are supposed of equal length.
+What do you think will happen if our vectors are of different length?
+
+Now check the output of the command `paste(LETTERS, 1:4, sep = "-")`?
+`LETTERS` is a predefined (built-in) variable in R containing a character vector of all 26 CAPITAL LETTERS in the English alphabet. Notice we are using `-` as our separator this time instead of a single space. Try it now.
+
+```{r paste_letters, exercise=TRUE}
+
+```
+
+What is happening here? Quite a lot, indeed!
+
+Since the character vector `LETTERS` is longer than the numeric vector 1:4, R simply recycles, or repeats, 1:4 until it matches the length of `LETTERS`. Also worth noting is that the numeric vector `1:4` gets 'coerced' into a character vector by the `paste()` function. Coercion means that the numbers `1`, `2`, `3`, and `4` in the output above are no longer numbers to R, but rather characters `"1"`, `"2"`, `"3"`, and `"4"`.
+
