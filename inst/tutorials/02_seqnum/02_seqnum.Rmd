@@ -117,7 +117,7 @@ my_seq <- seq(5, 10, length=30)
 
 ```
 
-You're using the same function here, but changing its arguments for different results. Be sure to store the result in a new variable called `my_seq`.
+You're using the same function here, but changing its arguments for different results. Be sure to store the result in the new variable `my_seq`.
 
 Now check that effectively the variable `my_seq` has length `30`. Try it now.
 

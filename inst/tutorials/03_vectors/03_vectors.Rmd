@@ -204,10 +204,14 @@ my_name <- c(my_char, "your name here!")
 my_name
 ```
 
-## review from here assignment of variables not working
+```{r assign_my_name, include=FALSE}
+my_char <- c("My", "name", "is")
+my_name <- c(my_char, "XXXX - placeholder to insert your name here!")
+```
+
 Now, use the `paste()` function once more to join the words in my_name together into a single character string. As you did in beforehand, don't forget to say `collapse = " "` to join all four words together, separated by single spaces.
 
-```{r print_my_name, exercise=TRUE, exercise.setup="my_name-hint"}
+```{r print_my_name, exercise=TRUE, exercise.setup="assign_my_name"}
 
 ```
 
