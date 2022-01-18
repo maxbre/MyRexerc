@@ -26,11 +26,11 @@ I have just slightly modified its original content to adapt it for my specific p
 
 # Atomic vectors are of different flavours
 
-Vectors come in two different flavors: atomic vectors and lists. An atomic vector contains exactly one data type, whereas a list may contain multiple data types. We'll explore atomic vectors further before we get to lists.
+Vectors come in two different flavors: atomic vectors and lists. An atomic vector contains exactly one data type, whereas a list may contain multiple data types. We are going to explore the atomic vectors and leave out for now the lists.
 
 In previous exercises, we dealt entirely with numeric vectors, which are one type of atomic vector. Other types of atomic vectors include logical, character, integer, and complex.
 
-In this esercise, we'll take a closer look at logical and character vectors.
+In this exercise, we'll take a closer look at logical and character vectors.
 
 # Logical vectors
 
@@ -63,7 +63,7 @@ question("What do you think the variable tf will look like?",
 )
 ```
 
-Do you remember our ecercise on vector arithmetic? The main topic was that R performs many operations on an element-by-element basis. We called these feature 'vectorized' operations.
+Do you remember our exercise on vector arithmetic? The main topic was that R performs many operations on an element-by-element basis. We called these feature 'vectorized' operations.
 
 ```{r q_vect_val}
 question("Can you predict the content of the variable tf?",
@@ -77,9 +77,9 @@ question("Can you predict the content of the variable tf?",
 
 The statement `num_vect < 1` is a condition and `tf` tells us whether each corresponding element of our numeric vector `num_vect` satisfies this condition (by using the "element-wise" feature).
 
-The first element of num_vect is `0.5`, which is less than `1` and therefore the statement `0.5 < 1` is `TRUE.` The second element of `num_vect` is `55`, which is greater than `1`, so the statement `55 < 1` is `FALSE`. The same logic applies for the third and fourth elements.
+The first element of `num_vect` is `0.5`, which is less than `1` and therefore the statement `0.5 < 1` is `TRUE.` The second element of `num_vect` is `55`, which is greater than `1`, so the statement `55 < 1` is `FALSE`. The same logic applies for the third and fourth elements.
 
-Print the contents of tf to verify and double check your answers.
+Print the contents of `tf` to verify and double check your answers.
 
 ```{r print_vect, exercise=TRUE, exercise.setup="vect-hint"}
 tf
@@ -139,7 +139,10 @@ question("(TRUE == TRUE) | (TRUE == FALSE), returns...",
 ```
 
 ```{r q_TF2-hint}
-#Break this problem down into 2 pieces. The `|` in the middle states that AT LEAST ONE of the pieces is TRUE. Your job is to figure out if that is an accurate statement. If so, the entire condition is TRUE. If not, it's FALSE.
+# Break this problem down into 2 pieces.
+# The `|` in the middle states that AT LEAST ONE of the pieces is TRUE. 
+# Your job is to figure out if that is an accurate statement. 
+# If so, the entire condition is TRUE. If not, it's FALSE.
 ```
 
 ```{r q_TF3}
@@ -152,7 +155,10 @@ question("(111 >= 111) | !(TRUE)) & ((4 + 1) == 5), returns...",
 ```
 
 ```{r q_TF3-hint}
-# Remember that the `!` symbol negates whatever comes after it. There is also an 'order of operations' going on here. Conditions that  are enclosed within parentheses should be evaluated first. Then, work your way outwards.
+# Remember that the `!` symbol negates whatever comes after it.
+# There is also an 'order of operations' going on here. 
+# Conditions that are enclosed within parentheses should be evaluated first.
+# Then, work your way outwards.
 ```
 
 Don't worry if you found these to be tricky. They're supposed to be. Working with logical statements in R takes practice, but your efforts will be rewarded in future exercises (e.g. subsetting and control structures).
@@ -190,7 +196,7 @@ paste(my_char, collapse = " ")
 
 The `collapse` argument to the paste() function tells R that when we join together the elements of the my_char character vector, we'd like to separate them with single spaces.
 
-But, hold on! It seems that we're missing something.... Ah, yes! Your name!
+But, hold on! It seems that we're missing something.... Oh, yes! Your name is missing now!
 
 To add (or concatenate) your name to the end of my_char, use the `c()` function.
 Tack your name on to the end of the my_char vector using the `c()` function. Be sure to assign the result to a new variable called `my_name` and then print its content.
@@ -254,7 +260,7 @@ Now check the output of the command `paste(LETTERS, 1:4, sep = "-")`?
 
 ```
 
-What is happening here? Quite a lot, indeed!
+What is happening here? Quite a lot, indeed! Let's see it briefly.
 
 Since the character vector `LETTERS` is longer than the numeric vector 1:4, R simply recycles, or repeats, 1:4 until it matches the length of `LETTERS`. Also worth noting is that the numeric vector `1:4` gets 'coerced' into a character vector by the `paste()` function. Coercion means that the numbers `1`, `2`, `3`, and `4` in the output above are no longer numbers to R, but rather characters `"1"`, `"2"`, `"3"`, and `"4"`.
 
