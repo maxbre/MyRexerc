@@ -1,0 +1,230 @@
+---
+title: "Missing values"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: >
+  missing values
+
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+tutorial_options(exercise.timelimit = 60)
+```
+
+# Introduction
+
+In this exercise, we'll explore missing values.
+Missing values play an important role in statistics and data analysis. Often, missing values must not be ignored, but rather they should be carefully studied to see if there's an underlying pattern or cause for their missingness.
+
+This is a tutorial adapted from the swirl source code at [GitHub](https://github.com/swirldev/swirl_courses). 
+
+I have just slightly modified its original content to adapt it for my specific purposes (thanks again to 'swirl' authors for such a great 'free lunch').
+
+## NA
+
+In R, NA is used to represent any value that is 'not available' or 'missing' (in the statistical sense). 
+
+Any operation involving NA generally yields NA as the result. 
+Let's illustrate further this concept by creating a vector `c(44, NA, 5, NA)` and assign it to a variable `x`.
+
+Enter below corresponding code.
+
+```{r na_vec, exercise=TRUE}
+
+```
+
+```{r na_vec-hint}
+# remember that NA must be in UPPERCASE
+```
+
+
+Now suppose to multiply multiply x by 3.
+
+```{r q_3x}
+
+  question("Can you predict the result of such an operation in R?",
+    answer("132  15"),
+    answer("NA"),
+    answer("132  NA  15  NA", correct = TRUE),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+  )
+
+```
+
+```{r assign_x, include=FALSE}
+x <- c(44, NA, 5, NA)
+
+```
+
+Check the answer by entering the corresponding code below.
+
+```{r na_vec_mult, exercise=TRUE, exercise.setup="assign_x"}
+
+```
+
+```{r na_vec_mult-hint}
+x * 3
+```
+
+There is to note that the elements of the resulting vector that correspond with the NA values in x are also NA.
+
+To make things a little more interesting, lets create a vector `y` containing 1000 draws from a standard normal distribution. The function `rnorm()` generates random numbers from a normal distribution.
+
+Enter the code below. Remember to assign results of the function`rnorm()` to a vector called `y`.
+
+```{r rnorm, exercise=TRUE}
+
+```
+
+```{r rnorm-hint}
+y <- rnorm(1000)
+```
+
+Next, let's create a vector containing 1000 NAs and assign it to the variable called `z`.
+
+Guess the code. 
+Hint: remember of the function `rep()`, which stands for "replicate".
+
+```{r vec_NA, exercise=TRUE}
+
+```
+
+```{r vec_NA-hint}
+z <- rep(NA, 1000)
+```
+
+Finally, let's select `100` elements at random from these `2000` values (combining `y` and `z`) such that we don't know how many `NA`s we'll end up with or what positions they'll occupy in our final vector called `my_data`.
+
+
+```{r assign_x_y, include=FALSE}
+y <- rnorm(1000)
+z <- rep(NA, 1000)
+```
+
+Guess the code. 
+Hint: the `sample()` function draws a random sample from the data provided as its first argument (in this case `c(y, z)`) of the size specified by the second argument: `100`.
+
+```{r sample, exercise=TRUE, exercise.setup="assign_x_y"}
+
+```
+
+```{r sample-hint}
+my_data <- sample(c(y, z), 100)
+
+```
+
+```{r my_data, include=FALSE}
+y <- rnorm(1000)
+z <- rep(NA, 1000)
+set.seed(12345)
+my_data <- sample(c(y, z), 100)
+```
+
+Let's first ask the question of where our `NA`s are located in our data. 
+The `is.na()` function tells us whether each element of a vector is `NA`. 
+Call `is.na()` on `my_data` and assign the result to `my_na`.
+
+```{r is_na, exercise=TRUE, , exercise.setup="my_data"}
+
+```
+
+```{r is_na-hint}
+my_na <- is.na(my_data)
+```
+
+
+```{r my_na, include=FALSE}
+y <- rnorm(1000)
+z <- rep(NA, 1000)
+set.seed(12345)
+my_data <- sample(c(y, z), 100)
+my_na <- is.na(my_data)
+
+```
+
+Now, print `my_na` to see what you came up with. As usual simply type `my_na` to view its contents.
+
+```{r print_my_na, exercise=TRUE, exercise.setup="my_na"}
+
+```
+
+Uuhh..., what's that?
+
+No worries, it's easy!
+Everywhere you see a `TRUE`, you know the corresponding element of my_data is `NA`. 
+Likewise, everywhere you see a `FALSE`, you know the corresponding element of my_data is one of our random draws from the standard normal distribution.
+
+In our previous exercise of logical operators, we introduced the `==` (equal to) operator as a method of testing for equality between two objects. So, you might think by using the operator `==` yields the same results as `is.na()`. Give it a try now to see what happens.
+
+```{r eq_na, exercise=TRUE, exercise.setup="my_na"}
+
+```
+
+```{r eq_na-hint}
+my_data == NA
+```
+
+...and now what's that?
+
+The reason you got a vector of all `NA`s is that `NA` is not really a value, but just a "placeholder" for a quantity that is not available. Therefore the logical expression is incomplete and R has no choice but to return a vector of the same length as my_data that contains all `NA`s.
+Don't worry if that's a little confusing. The key takeaway is to be cautious when using logical expressions anytime `NA`s might creep in, since a single `NA` value can derail the entire thing.
+
+So, back to the task at hand. Now that we have a vector, `my_na`, that has a `TRUE` for every `NA` and `FALSE` for every numeric value, we can compute the total number of `NA`s in our data.
+Here the trick is to recognize that underneath the surface, R represents `TRUE` as the number `1` and `FALSE` as the number `0`. Therefore, if we take the `sum()` of a bunch of `TRUE`s and `FALSE`s, we get a count of the total number of `TRUE`s.
+
+Let's give that a try here. 
+Call the `sum()` function on `my_na` to count the total number of `TRUE`s in `my_na`, and thus the total number of `NA`s in `my_data`. 
+Don't assign the result to a new variable.
+
+```{r sum_na, exercise=TRUE, exercise.setup="my_na"}
+
+```
+
+```{r sum_na-hint}
+sum(my_na)
+```
+
+Pretty cool, huh? 
+
+Finally, let's take a look at the data to convince ourselves that everything 'adds up'. Print `my_data` to the console.
+
+```{r print_my_data, exercise=TRUE, exercise.setup="my_na"}
+
+```
+
+## NaN
+
+Now let's look at a second type of missing value: `NaN`, which stands for 'not a number'. To generate `NaN`, try dividing (using a forward slash) `0` by `0` now.
+
+```{r NaN, exercise=TRUE}
+
+```
+
+## Inf
+
+Let's do one more, just for fun. In R, `Inf` stands for infinity. Try dividing `1` by `0` and check result.
+
+```{r Inf, eval=FALSE, exercise=TRUE}
+
+```
+
+And finally, what happens if you subtract `Inf` from `Inf`?
+
+
+```{r q_inf}
+
+  question("Can you guess the result?",
+    answer("0"),
+    answer("NA"),
+    answer("NaN", correct = TRUE),
+  random_answer_order = TRUE,
+  allow_retry = TRUE
+  )
+
+```
